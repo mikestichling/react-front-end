@@ -9,8 +9,8 @@ const Grid = ({data, title}) => {
                 {title}
             </span>
             <div className='grid'>
-                {data.map(item =>
-                    <Tile src={item.img} title={item.title} location={item.location}/>
+                {data.map((item, index) =>
+                    <Tile key={index} src={item.img} title={item.title} location={item.location}/>
             )}  
             </div>
         </div>

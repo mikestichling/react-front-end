@@ -25,24 +25,20 @@ const Carousel = () => {
 
     const left = () => {
         var newIndex = index - 1;
-        if (newIndex >= 0 && newIndex <= filterData(data, filterString).length)
-        {
+        if (newIndex >= 0 && newIndex <= filterData(data, filterString).length){
             setIndex(newIndex);
         }
-        else
-        {
+        else{
             setIndex(0);
         }
     }
     
     const right = () => {
         var newIndex = index + 1;
-        if (newIndex >= 0 && newIndex + PAGE_SIZE <= filterData(data, filterString).length)
-        {
+        if (newIndex >= 0 && newIndex + PAGE_SIZE <= filterData(data, filterString).length){
             setIndex(newIndex);
         }
-        else
-        {
+        else{
             setIndex(filterData(data, filterString).length - PAGE_SIZE);
         }
     }
@@ -52,10 +48,13 @@ const Carousel = () => {
         setFilterString(e.target.value);
     }
 
-    useEffect(async () => {      
-        const response = await Api.getCarousel();
-        const json = await response.json();
-        setData(json.data);
+    useEffect(() => {   
+        async function fetchData() {   
+            const response = await Api.getCarousel();
+            const json = await response.json();
+            setData(json.data);
+        };
+        fetchData();
     }, []);  
     
     return (

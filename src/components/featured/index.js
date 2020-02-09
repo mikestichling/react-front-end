@@ -5,10 +5,13 @@ import Grid from '../grid';
 const Featured = () => {
     const [data, setData] = useState([]);
 
-    useEffect(async () => {      
-        const response = await Api.getFeatured();  
-        const json = await response.json();
-        setData(json.data);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await Api.getFeatured();  
+            const json = await response.json();
+            setData(json.data);
+          };
+        fetchData();
     }, []);  
 
     return (
