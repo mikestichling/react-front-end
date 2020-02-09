@@ -1,0 +1,38 @@
+.carousel{
+    position: relative;
+}
+
+.carousel-button-container{
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    display: block;
+    background-color:#FFFFFF;
+    height: 70px;
+    width: 30px;
+}
+
+.pull-right{
+    right:0;
+}
+
+.carousel-button{
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    display: block;
+}
+
+.left{
+    background-image: url('/left.png');
+}
+
+.right{
+    background-image: url('/right.png');
+    
+}
